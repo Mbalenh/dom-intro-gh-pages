@@ -43,7 +43,6 @@ function addbtnSetting(){
             // billItemTypeWithSettings will be 'call' or 'sms'
             if(billItemTypeWithSettings === "call"){
                 totalcallsSettings += Number(callCostSetting.value)
-                console.log(callCostSetting.value);
             }
             else if(billItemTypeWithSettings === "sms"){
                 totalsmsSettings += Number(smsCostSetting.value)
@@ -72,15 +71,14 @@ function addColorBehavior(){
     let  warningLevel = warningLevelSetting.value;
     let criticalLevel = criticalLevelSetting.value;
     // * check the value thresholds and display the total value in the right color.
-    
+    totalSettings.classList.remove("danger");
+    totalSettings.classList.remove("warning");
     if(Number(totalCostSettings) >=Number(criticalLevel)){
-        totalSettings.classList.remove("warning");
-        totalSettings.classList.add("danger")
+        totalSettings.classList.add("danger");
 
     }
      else if(Number(totalCostSettings) >= Number(warningLevel)){
-        totalSettings.classList.remove("danger");
-        totalSettings.classList.add("warning")
+        totalSettings.classList.add("warning");
 
     }
     if(Number(totalCostSettings) >= Number(criticalLevel)){
